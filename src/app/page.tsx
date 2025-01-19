@@ -1,22 +1,16 @@
 "use client"
 import Image from "next/image";
-import {Switch} from "@/components/ui/switch";
-import {Label} from "@/components/ui/label";
-import {Moon, Sun} from "lucide-react";
+
 import {
     NavigationMenu,
     NavigationMenuItem, NavigationMenuLink,
     NavigationMenuList,
      navigationMenuTriggerStyle
 } from "@/components/ui/navigation-menu";
-import {useTheme} from "next-themes";
+import ThemeToggle from "@/components/ThemeToggle";
+import ImageWithPointer from "@/components/ImageWithPointer";
 
 export default function Home() {
-    const {theme, setTheme} = useTheme();
-    const toggleTheme = () => {
-        console.log("Switching theme to ", theme === "dark" ? "light" : "dark");
-        setTheme(theme === "dark" ? "light" : "dark");
-    }
     return (
         <>
             <header className={"bg-background text-foreground grid grid-cols-3 items-center min-h-10 max-h-10"}>
@@ -37,9 +31,7 @@ export default function Home() {
                     </NavigationMenu>
                 </div>
                 <div className={"col-start-3 flex justify-end items-center gap-0.5"}>
-                    <Label htmlFor={"theme"}/>
-                    <Switch id={"theme"} onCheckedChange={toggleTheme}/>
-                    {theme === "dark" ? <Moon /> : <Sun />}
+                    <ThemeToggle />
                 </div>
             </header>
             <main>
@@ -55,8 +47,7 @@ export default function Home() {
                 >
                     <h1 className={"text-4xl"}>Joel Biere </h1>
                     <p><span className={"text-xs"}>(and fam)</span></p>
-                    <Image src={"/images/Family.jpg"} alt={"Joel and family"} width={200} height={200}
-                           className={"rounded-lg"}/>
+                    <ImageWithPointer />
                     <div>
                         <h3>
                             Full Stack Developer with a fam-bam
