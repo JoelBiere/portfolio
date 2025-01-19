@@ -42,7 +42,7 @@ const ImageWithPointer = () => {
 
                 {/* Text label */}
                 <span className="absolute -left-16 -top-20 text-primary font-medium whitespace-nowrap">
-          That's Me!
+          {"That's Me!"}
         </span>
             </div>
         </div>
