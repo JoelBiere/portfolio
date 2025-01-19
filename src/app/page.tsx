@@ -4,31 +4,18 @@ import {Switch} from "@/components/ui/switch";
 import {Label} from "@/components/ui/label";
 import {Moon, Sun} from "lucide-react";
 import {
-    NavigationMenu, NavigationMenuContent,
+    NavigationMenu,
     NavigationMenuItem, NavigationMenuLink,
     NavigationMenuList,
-    NavigationMenuTrigger, navigationMenuTriggerStyle
+     navigationMenuTriggerStyle
 } from "@/components/ui/navigation-menu";
 import {useTheme} from "next-themes";
-import Link from "next/link";
 
 export default function Home() {
     const {theme, setTheme} = useTheme();
     const toggleTheme = () => {
         console.log("Switching theme to ", theme === "dark" ? "light" : "dark");
         setTheme(theme === "dark" ? "light" : "dark");
-    }
-
-    const generateBulkContent = () => {
-        const content = [];
-        for (let i = 0; i < 100; i++) {
-            content.push(
-                <div key={i}>
-                    {i} - This is a test
-                </div>
-            );
-        }
-        return content;
     }
     return (
         <>
@@ -37,18 +24,14 @@ export default function Home() {
                     <NavigationMenu>
                         <NavigationMenuList>
                             <NavigationMenuItem>
-                                <a href={"#about-section"} className={navigationMenuTriggerStyle()}>
-                                    <NavigationMenuLink>
+                                <NavigationMenuLink href={"#about-section"} className={navigationMenuTriggerStyle()}>
                                         About Me
-                                    </NavigationMenuLink>
-                                </a>
+                                </NavigationMenuLink>
                             </NavigationMenuItem>
                             <NavigationMenuItem>
-                                <a href={"#docs-section"} className={navigationMenuTriggerStyle()}>
-                                    <NavigationMenuLink>
-                                        Documentation
-                                    </NavigationMenuLink>
-                                </a>
+                                <NavigationMenuLink href={"#docs-section"} className={navigationMenuTriggerStyle()}>
+                                    Documentation
+                                </NavigationMenuLink>
                             </NavigationMenuItem>
                         </NavigationMenuList>
                     </NavigationMenu>

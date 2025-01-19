@@ -8,67 +8,74 @@ body {
 
 @layer base {
   :root {
-    /* Light theme using your color palette */
-    --background: 217 24% 93%; /* cool_gray-900 */
-    --foreground: 240 3% 15%; /* raisin_black-500 */
+    /* Light theme using expanded color palette */
+    --background: 220 17% 93%; /* cool_gray-900 converted */
+    --foreground: 0 0% 16%; /* eerie_black-500 converted */
 
-    --card: 217 24% 93%;  /* cool_gray-900 */
-    --card-foreground: 240 3% 15%; /* raisin_black-500 */
+    --card: 220 17% 93%; /* cool_gray-900 */
+    --card-foreground: 220 10% 34%; /* davys_gray-500 converted */
 
-    --popover: 217 24% 93%; /* cool_gray-900 */
-    --popover-foreground: 240 3% 15%; /* raisin_black-500 */
+    --popover: 220 17% 93%; /* cool_gray-900 */
+    --popover-foreground: 220 10% 34%; /* davys_gray-500 */
 
-    /* Using goldenrod as primary */
+    /* Goldenrod as primary in both themes */
     --primary: 40 72% 47%; /* goldenrod-500 */
-    --primary-foreground: 217 24% 93%; /* cool_gray-900 */
+    --primary-foreground: 0 0% 100%;
 
-    /* Using cool_gray as secondary */
+    /* Cool gray as secondary */
     --secondary: 217 24% 59%; /* cool_gray-500 */
-    --secondary-foreground: 240 3% 15%; /* raisin_black-500 */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 217 24% 85%; /* cool_gray-800 */
-    --muted-foreground: 240 3% 32%; /* raisin_black-600 */
+    /* Davy's gray for muted */
+    --muted: 220 10% 70%; /* davys_gray-800 */
+    --muted-foreground: 220 10% 34%; /* davys_gray-500 */
 
-    --accent: 40 72% 47%; /* goldenrod-500 */
-    --accent-foreground: 240 3% 15%; /* raisin_black-500 */
+    /* Raisin black variants for accent */
+    --accent: 0 0% 33%; /* raisin_black-600 */
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 217 24% 93%; /* cool_gray-900 */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
+    /* Border/input using cool gray */
     --border: 217 24% 59%; /* cool_gray-500 */
     --input: 217 24% 59%; /* cool_gray-500 */
     --ring: 40 72% 47%; /* goldenrod-500 */
 
     --radius: 0.5rem;
   }
+
   .dark {
-    /* Dark theme using your color palette */
-    --background: 240 3% 15%; /* raisin_black-500 */
-    --foreground: 217 24% 93%; /* cool_gray-900 */
+    /* Dark theme using expanded color palette */
+    --background: 0 0% 16%; /* eerie_black-500 */
+    --foreground: 220 17% 93%; /* cool_gray-900 */
 
-    --card: 240 3% 15%; /* raisin_black-500 */
-    --card-foreground: 217 24% 93%; /* cool_gray-900 */
+    --card: 0 0% 10%; /* raisin_black-200 */
+    --card-foreground: 220 17% 93%; /* cool_gray-900 */
 
-    --popover: 240 3% 15%; /* raisin_black-500 */
-    --popover-foreground: 217 24% 93%; /* cool_gray-900 */
+    --popover: 0 0% 10%; /* raisin_black-200 */
+    --popover-foreground: 220 17% 93%; /* cool_gray-900 */
 
-    /* Using cool_gray as primary in dark mode */
-    --primary: 217 24% 59%; /* cool_gray-500 */
-    --primary-foreground: 240 3% 15%; /* raisin_black-500 */
+    /* Keeping goldenrod as primary */
+    --primary: 40 72% 47%; /* goldenrod-500 */
+    --primary-foreground: 0 0% 100%;
 
-    /* Using goldenrod as secondary in dark mode */
-    --secondary: 40 72% 47%; /* goldenrod-500 */
-    --secondary-foreground: 217 24% 93%; /* cool_gray-900 */
+    /* Davy's gray as secondary in dark mode */
+    --secondary: 220 10% 34%; /* davys_gray-500 */
+    --secondary-foreground: 220 17% 93%; /* cool_gray-900 */
 
+    /* Cool gray for muted */
     --muted: 217 24% 29%; /* cool_gray-300 */
     --muted-foreground: 217 24% 85%; /* cool_gray-800 */
 
-    --accent: 40 72% 47%; /* goldenrod-500 */
-    --accent-foreground: 240 3% 15%; /* raisin_black-500 */
+    /* Different goldenrod shade for accent */
+    --accent: 40 72% 40%; /* goldenrod-400 */
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 217 24% 93%; /* cool_gray-900 */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 17% 93%; /* cool_gray-900 */
 
+    /* Darker cool gray for borders */
     --border: 217 24% 29%; /* cool_gray-300 */
     --input: 217 24% 29%; /* cool_gray-300 */
     --ring: 40 72% 47%; /* goldenrod-500 */
