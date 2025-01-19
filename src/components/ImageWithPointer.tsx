@@ -10,7 +10,7 @@ const ImageWithPointer = () => {
                 alt="Joel and family"
                 width={400}
                 height={400}
-                className="rounded-lg border border-secondary border-dashed"
+                className="rounded-lg border border-secondary border"
             />
 
             {/* Pointer container */}

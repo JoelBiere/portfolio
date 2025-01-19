@@ -9,13 +9,13 @@ body {
 @layer base {
   :root {
     /* Light theme using expanded color palette */
-    --background: 220 17% 93%; /* cool_gray-900 converted */
-    --foreground: 0 0% 16%; /* eerie_black-500 converted */
+    --background: 217 24% 85%; /* cool_gray-700 - darker than before */
+    --foreground: 0 0% 16%; /* eerie_black-500 */
 
-    --card: 220 17% 93%; /* cool_gray-900 */
-    --card-foreground: 220 10% 34%; /* davys_gray-500 converted */
+    --card: 217 24% 87%; /* slightly lighter than background */
+    --card-foreground: 220 10% 34%; /* davys_gray-500 */
 
-    --popover: 220 17% 93%; /* cool_gray-900 */
+    --popover: 217 24% 87%; /* matching card */
     --popover-foreground: 220 10% 34%; /* davys_gray-500 */
 
     /* Goldenrod as primary in both themes */
@@ -89,4 +89,38 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Enhanced flash animation with distinct pulses */
+@keyframes flash {
+  0% {
+    background-color: transparent;
+  }
+  15% {
+    background-color: hsl(var(--primary) / 0.3);
+  }
+  30% {
+    background-color: transparent;
+  }
+  45% {
+    background-color: transparent;
+  }
+  60% {
+    background-color: hsl(var(--primary) / 0.3);
+  }
+  75% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.flash {
+  animation: flash 1.5s ease-in-out;
+}
+/* Add smooth transition for background-color */
+[id] {
+  transition: background-color 0.3s ease;
+  scroll-margin-top: 2.5rem; /* Adds margin for sticky header */
 }
