@@ -62,7 +62,13 @@ export default function Home() {
                     border-b border-primary border-dashed
                 `}>
                 <div className={"col-start-1 ml-3"}>
-                    <Button onClick={()=>handleLinkClicked("connect-section")} ><a href={"#connect-section"}>Connect!</a> </Button>
+                    <Button variant={"outline"}
+                            size={"sm"}
+                            className={"text-primary border-primary"}
+                            onClick={()=>handleLinkClicked("connect-section")}
+                    >
+                        <a href={"#connect-section"} className={""}>Connect!</a>
+                    </Button>
                 </div>
                 <div className={"col-start-2 flex justify-center"}>
                     <NavigationMenu>
