@@ -17,13 +17,14 @@ const ImageWithPointer = () => {
             <div className="absolute top-1/3 left-64">
                 {/* Curved arrow using SVG */}
                 <svg
-                    width="100"
+                    width="150"
                     height="100"
                     viewBox="0 0 100 100"
-                    className="absolute -left-24 -top-16 transform rotate-45"
+                    className="absolute -left-36 -top-44 "
                 >
                     <path
-                        d="M10,90 Q30,90 40,70 T60,40"
+                        // d="M10,90 Q30,90 40,70 T60,40"
+                        d={"M50, 50, Q70,30,80,57, T105, 75"}
                         fill="none"
                         stroke="currentColor"
                         strokeWidth="2"
@@ -31,19 +32,27 @@ const ImageWithPointer = () => {
                         className="text-primary animate-pulse"
                     />
                     {/* Arrow head */}
-                    <path
-                        d="M55,45 L70,45 L75,55"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
+                    {/*<path*/}
+                    {/*    d="M105,60, L 110, 75, L 100, 85"*/}
+                    {/*    fill="none"*/}
+                    {/*    stroke="currentColor"*/}
+                    {/*    strokeWidth="2"*/}
+                    {/*    className="text-primary"*/}
+                    {/*/>*/}
+                    {/* Text label */}
+                    <text
+                        x="20"
+                        y="50"
+                        fill="currentColor"
                         className="text-primary"
-                    />
+                        textAnchor="middle"
+                        style={{ fontFamily: "'Shadows Into Light', cursive" }}
+                    >
+                        <tspan x="20" dy="0">{"That's"}</tspan>
+                        <tspan x="20" dy="1.2em">Me!</tspan>
+                    </text>
                 </svg>
 
-                {/* Text label */}
-                <span className="absolute -left-16 -top-20 text-primary font-medium whitespace-nowrap">
-          {"That's Me!"}
-        </span>
             </div>
         </div>
     );
