@@ -2,15 +2,17 @@
 
 import {
     NavigationMenu,
-    NavigationMenuItem, NavigationMenuLink,
+    NavigationMenuItem,
+    NavigationMenuLink,
     NavigationMenuList,
-     navigationMenuTriggerStyle
+    navigationMenuTriggerStyle
 } from "@/components/ui/navigation-menu";
 import ThemeToggle from "@/components/ThemeToggle";
 import ImageWithPointer from "@/components/ImageWithPointer";
 import ConnectWithMe from "@/components/ConnectWithMe";
 import {Button} from "@/components/ui/button";
 import {useEffect, useState} from "react";
+import DeveloperRoles from "@/components/DeveloperRoles";
 
 export default function Home() {
 
@@ -59,13 +61,13 @@ export default function Home() {
                     grid grid-cols-3 items-center 
                     min-h-10 max-h-10 
                     sticky top-0 z-50
-                    border-b border-primary border-dashed
+                    border-b border-foreground/70 border-dashed
                 `}>
                 <div className={"col-start-1 ml-3"}>
                     <Button variant={"outline"}
                             size={"sm"}
                             className={"text-primary border-primary"}
-                            onClick={()=>handleLinkClicked("connect-section")}
+                            onClick={() => handleLinkClicked("connect-section")}
                     >
                         <a href={"#connect-section"} className={""}>Connect!</a>
                     </Button>
@@ -74,17 +76,27 @@ export default function Home() {
                     <NavigationMenu>
                         <NavigationMenuList>
                             <NavigationMenuItem>
-                                <NavigationMenuLink onClick={()=>handleLinkClicked("home-section")} href={"#home-section"} className={navigationMenuTriggerStyle()}>
+                                <NavigationMenuLink
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        window.history.pushState({}, '', '/');
+                                        window.scrollTo({top: 0, behavior: 'smooth'});
+                                    }}
+                                    href="/"
+                                    className={navigationMenuTriggerStyle()}
+                                >
                                     Home
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
                             <NavigationMenuItem>
-                                <NavigationMenuLink onClick={()=>handleLinkClicked("about-section")} href={"#about-section"} className={navigationMenuTriggerStyle()}>
-                                        About Me
+                                <NavigationMenuLink onClick={() => handleLinkClicked("about-section")}
+                                                    href={"#about-section"} className={navigationMenuTriggerStyle()}>
+                                    About Me
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
                             <NavigationMenuItem>
-                                <NavigationMenuLink onClick={()=>handleLinkClicked("projects-section")} href={"#projects-section"} className={navigationMenuTriggerStyle()}>
+                                <NavigationMenuLink onClick={() => handleLinkClicked("projects-section")}
+                                                    href={"#projects-section"} className={navigationMenuTriggerStyle()}>
                                     Projects
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
@@ -93,67 +105,55 @@ export default function Home() {
                     </NavigationMenu>
                 </div>
                 <div className={"col-start-3 flex justify-end items-center gap-0.5"}>
-                    <ThemeToggle />
+                    <ThemeToggle/>
                 </div>
             </header>
             <main>
                 <div className={"grid grid-cols-4 grid-rows-4"}>
-                <div
-                    className={`
+                    <div
+                        className={`
                         row-start-1 row-end-2 
                         col-start-1 col-end-5 
                         flex flex-col items-center justify-center
                         ${getFlashClass('home-section')}
                     `}
-                    style={{minHeight: "calc(100vh - 40px"}}
-                    id={"home-section"}
-                >
-                    <h1 className={"text-4xl"}>Joel Biere </h1>
-                    <p><span className={"text-xs"}>(and fam)</span></p>
-                    <ImageWithPointer />
-                    <div>
-                        <h3>
-                            Former educator turned software developer
-                        </h3>
-                        <h3>
-                            I engineer Backend Systems
-                        </h3>
-                        <h3>
-                            I create Frontend Interfaces
-                        </h3>
-                        <h3>
-                            I build Fullstack Applications
-                        </h3>
+                        style={{minHeight: "calc(100vh - 40px"}}
+                        id={"home-section"}
+                    >
+                        <h1 className={"text-4xl"}>Joel Biere </h1>
+                        <p><span className={"text-xs"}>(and fam)</span></p>
+                        <ImageWithPointer/>
+                        <DeveloperRoles/>
                     </div>
-                </div>
-                <div
-                    id={"about-section"}
-                    className={`
+                    <div
+                        id={"about-section"}
+                        className={`
                         col-start-1 col-end-5 flex justify-center
                         ${getFlashClass('about-section')}
 
                     `}
-                >
-                    THIS IS THE ABOUT SECTION
-                </div>
-                <div
-                    id={"projects-section"}
-                    className={`
+                    >
+                        THIS IS THE ABOUT SECTION
+                    </div>
+                    <div
+                        id={"projects-section"}
+                        className={`
                         col-start-1 col-end-5 flex justify-center
                         ${getFlashClass('projects-section')}
                     `}
-                >
-                    THIS IS THE PROJECTS SECTION
-                </div>
+                    >
+                        THIS IS THE PROJECTS SECTION
+                    </div>
                 </div>
             </main>
-            <footer
-                className={`
-                    row-start-3 flex gap-6 flex-wrap items-center justify-center 
-                    ${getFlashClass('connect-section')}
-                `}
-            >
-               <ConnectWithMe  />
+            <footer>
+                <div className={`
+                    row-start-3 flex gap-6 flex-wrap items-center justify-center
+                `}>
+                    <div className={`${getFlashClass('connect-section')}`}>
+                        <ConnectWithMe/>
+                    </div>
+                </div>
             </footer>
 
         </>

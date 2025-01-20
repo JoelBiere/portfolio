@@ -43,6 +43,10 @@ body {
     --ring: 40 72% 47%; /* goldenrod-500 */
 
     --radius: 0.5rem;
+
+    /* Icon theme values for light mode */
+    --icon-invert: 0.4;
+    --icon-brightness: 0.6; /* Slightly dimmed in light mode */
   }
 
   .dark {
@@ -79,6 +83,10 @@ body {
     --border: 217 24% 29%; /* cool_gray-300 */
     --input: 217 24% 29%; /* cool_gray-300 */
     --ring: 40 72% 47%; /* goldenrod-500 */
+
+    /* Icon theme values for dark mode */
+    --icon-invert: 0.8;
+    --icon-brightness-dark: 10; /* Much brighter in dark mode */
   }
 }
 
@@ -123,4 +131,43 @@ body {
 [id] {
   transition: background-color 0.3s ease;
   scroll-margin-top: 2.5rem; /* Adds margin for sticky header */
+}
+
+/* Add to your globals.css */
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-1 {
+  animation: slideInFromRight 0.4s ease-out forwards;
+}
+
+.slide-in-2 {
+  animation: slideInFromRight 0.4s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+.slide-in-3 {
+  animation: slideInFromRight 0.4s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee linear infinite;
 }
