@@ -1,7 +1,9 @@
 "use client"
-import React from 'react';
+import React, {useState} from 'react';
 import { Separator } from "@/components/ui/separator";
 import TechMarquee from "@/components/TechMarquee";
+import {Label} from "@/components/ui/label";
+import {Switch} from "@/components/ui/switch";
 
 export interface TechItem {
     name: string;
@@ -9,6 +11,8 @@ export interface TechItem {
 }
 
 const DeveloperRoles = () => {
+    const [showNames, setShowNames] = useState(false)
+
     const backendTech: TechItem[] = [
         { name: 'Java', path: '/icons/java-plain.svg' },
         { name: 'SpringBoot', path: '/icons/springboot.svg' },
@@ -56,16 +60,16 @@ const DeveloperRoles = () => {
                     <h3 className="text-sm font-medium text-foreground hover:text-primary/80 transition-colors py-1">
                         <span className="text-primary">Engineers</span> Backend Systems
                     </h3>
-                    <TechMarquee technologies={backendTech} />
+                    <TechMarquee technologies={backendTech} showNames={showNames}/>
                 </div>
 
-                <Separator className="my-2" />
+                <Separator className="my-2"/>
 
                 <div className="slide-in-2 flex justify-between items-center">
                     <h3 className="text-sm font-medium text-foreground hover:text-primary/80 transition-colors py-1">
                         <span className="text-primary">Creates</span> Frontend Interfaces
                     </h3>
-                    <TechMarquee technologies={frontendTech} />
+                    <TechMarquee technologies={frontendTech} showNames={showNames}/>
                 </div>
 
                 <Separator className="my-2"/>
@@ -74,7 +78,21 @@ const DeveloperRoles = () => {
                     <h3 className="text-sm font-medium text-foreground hover:text-primary/80 transition-colors py-1">
                         <span className="text-primary">Builds</span> Fullstack Applications
                     </h3>
-                    <TechMarquee technologies={fullstackTech} />
+                    <TechMarquee technologies={fullstackTech} showNames={showNames}/>
+                </div>
+                <Separator className={"my-2"}/>
+                <div className="flex flex-col gap-2">
+                    <div className="flex items-center justify-end gap-2">
+                        <Label htmlFor="show-names" className="text-xs text-muted-foreground">
+                            Show Names
+                        </Label>
+                        <Switch
+                            id="show-names"
+                            checked={showNames}
+                            onCheckedChange={setShowNames}
+
+                        />
+                    </div>
                 </div>
             </div>
         </div>
