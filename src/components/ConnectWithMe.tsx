@@ -2,7 +2,6 @@
 
 import {Button} from "@/components/ui/button";
 import {GithubOutlined, GitlabOutlined, LinkedinOutlined, MailOutlined, PhoneOutlined} from "@ant-design/icons";
-import {Label} from "@/components/ui/label";
 import {Separator} from "@/components/ui/separator";
 
 const ConnectWithMe = () => {
