@@ -52,7 +52,7 @@ const DeveloperRoles = () => {
     return (
         <div className="mt-4">
             <h2 className="text-base text-foreground/70 mb-3">
-                Former educator turned software developer who...
+                Former educator turned software developer who:
             </h2>
 
             <div className="space-y-2">
@@ -67,7 +67,7 @@ const DeveloperRoles = () => {
 
                 <div className="slide-in-2 flex justify-between items-center">
                     <h3 className="text-sm font-medium text-foreground hover:text-primary/80 transition-colors py-1">
-                        <span className="text-primary">Creates</span> Frontend Interfaces
+                        <span className="text-primary">Creates</span> Frontend Experiences
                     </h3>
                     <TechMarquee technologies={frontendTech} showNames={showNames}/>
                 </div>

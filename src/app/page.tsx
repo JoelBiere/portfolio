@@ -13,6 +13,7 @@ import ConnectWithMe from "@/components/ConnectWithMe";
 import {Button} from "@/components/ui/button";
 import {useEffect, useState} from "react";
 import DeveloperRoles from "@/components/DeveloperRoles";
+import AboutMe from "@/components/AboutMe";
 
 export default function Home() {
 
@@ -125,15 +126,9 @@ export default function Home() {
                         <ImageWithPointer/>
                         <DeveloperRoles/>
                     </div>
-                    <div
-                        id={"about-section"}
-                        className={`
-                        col-start-1 col-end-5 flex justify-center
-                        ${getFlashClass('about-section')}
-
-                    `}
+                    <div className={`col-start-1 col-end-5 flex justify-center`}
                     >
-                        THIS IS THE ABOUT SECTION
+                        <AboutMe getFlashClass={getFlashClass} />
                     </div>
                     <div
                         id={"projects-section"}
