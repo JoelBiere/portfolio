@@ -2,7 +2,7 @@
 import React from 'react'
 import {ImageInfo} from "@/components/AboutMe";
 import Image from "next/image";
-import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
+import {Card, CardHeader, CardTitle} from "@/components/ui/card";
 export interface Milestone {
     date: string;
     title: string;
