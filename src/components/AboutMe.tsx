@@ -4,9 +4,17 @@ import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {Separator} from "@/components/ui/separator";
 import Link from 'next/link';
 import { Image } from 'antd';
+import Timeline from "@/components/Timeline";
+
+export interface ImageInfo {
+    src: string;
+    alt: string;
+    height?: number;
+    width?: number;
+}
 
 const AboutMe = ({getFlashClass}: { getFlashClass: (section: string) => string }) => {
-    const images = [
+    const images:ImageInfo[] = [
         {
             src: "/images/Mr_Biere_Teaching.jpg",
             alt: "Mr. Biere Teaching"
@@ -24,7 +32,7 @@ const AboutMe = ({getFlashClass}: { getFlashClass: (section: string) => string }
                     <CardTitle
                         className={`text-2xl text-primary ${getFlashClass('about-section')}`}
                         id={"about-section"}>
-                        <Link href={"#about-section"}> About Me #</Link>
+                        <Link href={"#about-section"}># About Me</Link>
                     </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-12">
@@ -35,8 +43,9 @@ const AboutMe = ({getFlashClass}: { getFlashClass: (section: string) => string }
                             <p className="text-muted-foreground">
                                 I was a high school teacher for 5 years before transitioning into software development.
                                 As an educator - I sought to create engaging and meaningful learning experiences for my students
-                                via a &#34;flipped classroom&#34; model -- building homemade digital content and resources to support
-                                self-driven learning.
+                                via a &#34;flipped classroom&#34; model. This meant building custom digital content and resources
+                                that enabled students to learn at their own pace, while transforming
+                                classroom time into active problem-solving sessions.
                             </p>
                         </div>
                         <div className="order-first md:order-last">
@@ -53,10 +62,16 @@ const AboutMe = ({getFlashClass}: { getFlashClass: (section: string) => string }
                     <div className="grid md:grid-cols-2 gap-8 items-center">
                         <div className="md:order-last">
                             <p className="text-muted-foreground">
-                                This strategy worked well for the students in the culture of the schools I worked
-                                in - as it put the onus on them to take ownership of their learning - rather than presenting the transfer of knowledge
-                                in the traditional power structure of teacher and student. I - Mr. Biere - was no longer on a stage - rather I was a partner
-                                in helping them get their work done.
+                                This approach resonated with students because it shifted the traditional classroom dynamic.
+                                Instead of being passive recipients of knowledge, they became active participants in their learning journey.
+                                My role evolved from deliverer of instruction to learning partner, guiding students through challenges while they took
+                                ownership of their education.
+                            </p>
+                            <br />
+                            <p>
+                                It was in creating these digital learning tools that I discovered my passion for development.
+                                This experience taught me a fundamental principle I still apply today in UI/UX design:
+                                <span className={"text-primary"}> make complex tasks simple to engage with</span>.
                             </p>
                         </div>
                         <div className="md:order-first">
@@ -73,27 +88,28 @@ const AboutMe = ({getFlashClass}: { getFlashClass: (section: string) => string }
 
                     {/* Professional Journey section */}
                     <section>
-                        <h3 className="text-xl font-semibold mb-2">Professional Journey</h3>
-                        <div className="space-y-4">
-                            <div className="bg-card p-4 rounded-lg">
-                                <h4 className="text-primary font-medium">Current Role</h4>
-                                <p className="text-muted-foreground">
-                                    Full Stack Developer specializing in Java/Spring Backend and
-                                    React/TypeScript Frontend development. Working on enterprise-level
-                                    applications with a focus on scalability and user experience.
-                                </p>
-                            </div>
+                        <Timeline />
+                        {/*<h3 className="text-xl font-semibold mb-2">Professional Journey</h3>*/}
+                        {/*<div className="space-y-4">*/}
+                        {/*    <div className="bg-card p-4 rounded-lg">*/}
+                        {/*        <h4 className="text-primary font-medium">Current Role</h4>*/}
+                        {/*        <p className="text-muted-foreground">*/}
+                        {/*            Full Stack Developer specializing in Java/Spring Backend and*/}
+                        {/*            React/TypeScript Frontend development. Working on enterprise-level*/}
+                        {/*            applications with a focus on scalability and user experience.*/}
+                        {/*        </p>*/}
+                        {/*    </div>*/}
 
-                            <div className="bg-card p-4 rounded-lg">
-                                <h4 className="text-primary font-medium">Previous Experience</h4>
-                                <p className="text-muted-foreground">
-                                    Education professional with expertise in curriculum development
-                                    and student engagement. This experience translated well into
-                                    software development, particularly in areas of documentation,
-                                    training, and team collaboration.
-                                </p>
-                            </div>
-                        </div>
+                        {/*    <div className="bg-card p-4 rounded-lg">*/}
+                        {/*        <h4 className="text-primary font-medium">Previous Experience</h4>*/}
+                        {/*        <p className="text-muted-foreground">*/}
+                        {/*            Education professional with expertise in curriculum development*/}
+                        {/*            and student engagement. This experience translated well into*/}
+                        {/*            software development, particularly in areas of documentation,*/}
+                        {/*            training, and team collaboration.*/}
+                        {/*        </p>*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
                     </section>
 
                     <Separator />

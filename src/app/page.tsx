@@ -110,10 +110,9 @@ export default function Home() {
                 </div>
             </header>
             <main>
-                <div className={"grid grid-cols-4 grid-rows-4"}>
+                <div className={"grid grid-cols-4"}>
                     <div
                         className={`
-                        row-start-1 row-end-2 
                         col-start-1 col-end-5 
                         flex flex-col items-center justify-center
                         ${getFlashClass('home-section')}
@@ -126,7 +125,9 @@ export default function Home() {
                         <ImageWithPointer/>
                         <DeveloperRoles/>
                     </div>
-                    <div className={`col-start-1 col-end-5 flex justify-center`}
+                    <div className={`
+                    col-start-1 col-end-5 
+                    flex justify-center`}
                     >
                         <AboutMe getFlashClass={getFlashClass} />
                     </div>
@@ -143,7 +144,7 @@ export default function Home() {
             </main>
             <footer>
                 <div className={`
-                    row-start-3 flex gap-6 flex-wrap items-center justify-center
+                    flex gap-6 flex-wrap items-center justify-center
                 `}>
                     <div className={`${getFlashClass('connect-section')}`}>
                         <ConnectWithMe/>
