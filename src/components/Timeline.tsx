@@ -30,12 +30,12 @@ const Timeline = () => {
             <h3 className="text-xl font-semibold mb-6">Technical Professional Journey</h3>
             <div className="relative">
                 {/* Vertical line */}
-                <div className="absolute left-8 top-3 h-full w-0.5 bg-foreground/30"></div>
+                <div className="absolute left-8 sm:left-8 top-3 h-full w-0.5 bg-foreground/30"></div>
 
                 {/* Timeline items */}
                 <div className="space-y-12">
                     {milestones.map((milestone, index) => (
-                        <div key={index} className="flex gap-8 relative">
+                        <div key={index} className="flex gap-4 sm:gap-8 relative">
                             {/* Circle on timeline */}
                             <div className="w-16 h-16 rounded-full bg-background border-2 border-primary flex items-center justify-center shrink-0 z-10">
                                 <span className="text-xs text-center text-foreground font-medium">
@@ -46,7 +46,7 @@ const Timeline = () => {
                             {/* Content Card */}
                             <Card className="flex-1">
                                 <CardHeader>
-                                    <div className="flex items-center gap-4">
+                                    <div className="flex flex-col sm:flex-row items-center gap-4">
                                         <div className="flex-1">
                                             <CardTitle className="text-lg font-medium text-primary">
                                                 {milestone.title}
@@ -56,13 +56,13 @@ const Timeline = () => {
                                             </p>
                                         </div>
                                         {milestone.images?.map((image, idx) => (
-                                            <div key={idx}  >
+                                            <div key={idx} className={"min-w-[40px] w-[40px] sm:min-w-[60px] sm:w-[60px]"}  >
                                                 <Image
                                                     src={image.src}
                                                     alt={image.alt}
                                                     height={image.height || 80}
                                                     width={image.width || 80}
-                                                    className="object-contain"
+                                                    className="w-full h-auto object-contain"
                                                 />
                                             </div>
                                         ))}
@@ -92,7 +92,7 @@ export default Timeline;
 const darkModeMilestones = [
     {
         date: "Spring 2021",
-        title: "Start Night Classes",
+        title: "Begin Night Classes",
         company: "Tech901 | Harvard CS50",
         images: [
             {
