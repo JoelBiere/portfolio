@@ -11,7 +11,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 import ImageWithPointer from "@/components/ImageWithPointer";
 import ConnectWithMe from "@/components/ConnectWithMe";
 import {Button} from "@/components/ui/button";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import DeveloperRoles from "@/components/DeveloperRoles";
 import AboutMe from "@/components/AboutMe";
 import {Separator} from "@/components/ui/separator";
@@ -40,59 +40,16 @@ export default function Home() {
     const handleNavigation = (sectionId: string) => {
         const element = document.getElementById(sectionId);
         if (element) {
-            // Get viewport width
-            const viewportWidth = window.innerWidth;
-            const isMobile = viewportWidth < 640; // matches Tailwind's 'sm' breakpoint
-
-            // If it's the home section, just scroll to top
             if (sectionId === 'home-section') {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
-                // For mobile, use native scrollIntoView with less offset
-                if (isMobile) {
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - 20; // smaller offset for mobile
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth"
-                    });
-                } else {
-                    // For desktop, use the original behavior with more offset for the sticky header
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - 64; // larger offset for desktop
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth"
-                    });
-                }
+                element.scrollIntoView({ behavior: 'smooth' });
             }
-
             const sectionName = sectionId.replace('-section', '');
             triggerFlash(sectionName);
         }
         setIsMobileMenuOpen(false);
     };
-
-    useEffect(() => {
-        const handleHashChange = () => {
-            const hash = window.location.hash.slice(1);
-            if (hash) {
-                handleNavigation(hash);
-            } else {
-                triggerFlash('home');
-            }
-        };
-
-        // Handle initial load
-        if (window.location.hash) {
-            handleHashChange();
-        }
-
-        window.addEventListener('hashchange', handleHashChange);
-        return () => window.removeEventListener('hashchange', handleHashChange);
-    }, []);
 
     return (
         <>
@@ -225,7 +182,7 @@ export default function Home() {
                     </div>
 
                     {/* About section */}
-                    <div className="col-start-1 col-end-5 flex justify-center">
+                    <div id="about-section" className="col-start-1 col-end-5 flex justify-center scroll-margin-header">
                         <AboutMe getFlashClass={getFlashClass}/>
                     </div>
 
@@ -234,7 +191,7 @@ export default function Home() {
                     </div>
 
                     {/* Projects section */}
-                    <div className="col-start-1 col-end-5 flex justify-center">
+                    <div id="projects-section" className="col-start-1 col-end-5 flex justify-center scroll-margin-header">
                         <ProjectsSection getFlashClass={getFlashClass}/>
                     </div>
                 </div>
