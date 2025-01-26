@@ -76,7 +76,7 @@ const DeveloperRoles = () => {
 
                 <div className="slide-in-3 flex justify-between items-center">
                     <h3 className="text-sm font-medium text-foreground hover:text-primary/80 transition-colors py-1">
-                        <span className="text-primary">Buildin</span> Fullstack Applications
+                        <span className="text-primary">Building</span> Fullstack Applications
                     </h3>
                     <TechMarquee technologies={fullstackTech} showNames={showNames}/>
                 </div>
