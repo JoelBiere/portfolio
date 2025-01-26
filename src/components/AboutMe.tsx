@@ -48,12 +48,14 @@ const AboutMe = ({getFlashClass}: { getFlashClass: (section: string) => string }
                                 classroom time into active problem-solving sessions.
                             </p>
                         </div>
-                        <div className="order-first md:order-last">
+                        <div className="order-first md:order-last relative w-full aspect-[4/3]">
                                 <Image
                                     width={400}
                                     src={images[0].src}
                                     alt={images[0].alt}
                                     className="rounded-lg"
+                                    sizes="(max-width: 768px) 100vw, 50vw"  // This helps Next.js optimize the image size
+
                                 />
                         </div>
                     </div>
@@ -89,47 +91,46 @@ const AboutMe = ({getFlashClass}: { getFlashClass: (section: string) => string }
                     {/* Professional Journey section */}
                     <section>
                         <Timeline />
-                        {/*<h3 className="text-xl font-semibold mb-2">Professional Journey</h3>*/}
-                        {/*<div className="space-y-4">*/}
-                        {/*    <div className="bg-card p-4 rounded-lg">*/}
-                        {/*        <h4 className="text-primary font-medium">Current Role</h4>*/}
-                        {/*        <p className="text-muted-foreground">*/}
-                        {/*            Full Stack Developer specializing in Java/Spring Backend and*/}
-                        {/*            React/TypeScript Frontend development. Working on enterprise-level*/}
-                        {/*            applications with a focus on scalability and user experience.*/}
-                        {/*        </p>*/}
-                        {/*    </div>*/}
-
-                        {/*    <div className="bg-card p-4 rounded-lg">*/}
-                        {/*        <h4 className="text-primary font-medium">Previous Experience</h4>*/}
-                        {/*        <p className="text-muted-foreground">*/}
-                        {/*            Education professional with expertise in curriculum development*/}
-                        {/*            and student engagement. This experience translated well into*/}
-                        {/*            software development, particularly in areas of documentation,*/}
-                        {/*            training, and team collaboration.*/}
-                        {/*        </p>*/}
-                        {/*    </div>*/}
-                        {/*</div>*/}
                     </section>
 
                     <Separator />
 
                     {/* Personal Interests section */}
                     <section>
-                        <h3 className="text-xl font-semibold mb-2">Personal Interests</h3>
+                        <h3 className="text-xl font-semibold mb-2">What&#39;s Next?</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="bg-card p-4 rounded-lg">
-                                <h4 className="text-primary font-medium">Technology</h4>
+                                <h4 className="text-primary font-medium">Individual Contributor vs. People Management</h4>
                                 <p className="text-muted-foreground">
-                                    Passionate about staying current with emerging technologies
-                                    and exploring new ways to solve complex problems through code.
+                                    <br />
+                                    I believe that the best managers are those who have been individual contributors for a significant amount of time.
+                                    <br />
+                                    <br />
+                                    I am prone to taking on leadership roles, but I also enjoy the deep focus and
+                                    problem-solving that comes with being an individual contributor.
+                                    <br />
+                                    <br />
+                                    For the immediate term, I am focused on honing my technical skills as a senior developer.
                                 </p>
                             </div>
                             <div className="bg-card p-4 rounded-lg">
-                                <h4 className="text-primary font-medium">Community</h4>
+                                <h4 className="text-primary font-medium">Frontend vs. Backend</h4>
                                 <p className="text-muted-foreground">
-                                    Active in tech communities, participating in meetups and
-                                    contributing to open-source projects when possible.
+                                    <br />
+                                    I love the creative aspects of frontend development and the satisfaction of
+                                    seeing immediate results while crafting user experiences.
+                                    <br />
+                                    <br />
+                                    My background in education gives me a unique perspective on UI/UX design - as a teacher,
+                                    I learned that user engagement often depends on how approachable a task appears,
+                                    not just its actual complexity. I enjoy the work of making the complex approachable.
+                                    <br />
+                                    <br />
+                                    On the backend, I&#39;m drawn to the architectural aspects of system design. Building
+                                    scalable, reusable, and maintainable solutions brings its own kind of creative fulfillment.
+                                    <br/>
+                                    <br />
+                                    Ideally, my future roles will allow me to continue working across both domains.
                                 </p>
                             </div>
                         </div>

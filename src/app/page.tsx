@@ -14,6 +14,8 @@ import {Button} from "@/components/ui/button";
 import {useEffect, useState} from "react";
 import DeveloperRoles from "@/components/DeveloperRoles";
 import AboutMe from "@/components/AboutMe";
+import {Separator} from "@/components/ui/separator";
+import ProjectsSection from "@/components/ProjectsSection";
 
 export default function Home() {
 
@@ -78,12 +80,10 @@ export default function Home() {
                         <NavigationMenuList>
                             <NavigationMenuItem>
                                 <NavigationMenuLink
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        window.history.pushState({}, '', '/');
+                                    onClick={() => {
+                                        history.pushState("", document.title, window.location.pathname + window.location.search);
                                         window.scrollTo({top: 0, behavior: 'smooth'});
                                     }}
-                                    href="/"
                                     className={navigationMenuTriggerStyle()}
                                 >
                                     Home
@@ -125,20 +125,24 @@ export default function Home() {
                         <ImageWithPointer/>
                         <DeveloperRoles/>
                     </div>
+                    <div className={`col-start-1 col-end-5 `}>
+                        <Separator />
+                    </div>
                     <div className={`
                     col-start-1 col-end-5 
                     flex justify-center`}
                     >
                         <AboutMe getFlashClass={getFlashClass} />
                     </div>
+                    <div className={`col-start-1 col-end-5 `}>
+                        <Separator />
+                    </div>
                     <div
-                        id={"projects-section"}
                         className={`
                         col-start-1 col-end-5 flex justify-center
-                        ${getFlashClass('projects-section')}
                     `}
                     >
-                        THIS IS THE PROJECTS SECTION
+                        <ProjectsSection getFlashClass={getFlashClass}/>
                     </div>
                 </div>
             </main>
