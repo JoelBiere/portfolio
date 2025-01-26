@@ -51,7 +51,7 @@ const DeveloperRoles = () => {
 
     return (
 
-        <div className="mt-4 px-4 sm:px-6 max-w-2xl">
+        <div className="mt-36 px-4 sm:px-6 w-full max-w-2xl relative">
             <h2 className="text-base text-foreground/70 mb-3">
                 Full Stack Developer with experience in:
             </h2>

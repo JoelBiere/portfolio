@@ -37,13 +37,19 @@ export default function Home() {
         setTimeout(() => setIsFlashing(""), 1500);
     };
 
+    const HEADER_HEIGHT = 40; // pixels
+
     const handleNavigation = (sectionId: string) => {
         const element = document.getElementById(sectionId);
         if (element) {
             if (sectionId === 'home-section') {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
-                element.scrollIntoView({ behavior: 'smooth' });
+                const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+                window.scrollTo({
+                    top: elementPosition - HEADER_HEIGHT,
+                    behavior: 'smooth'
+                });
             }
             const sectionName = sectionId.replace('-section', '');
             triggerFlash(sectionName);
@@ -54,7 +60,9 @@ export default function Home() {
     return (
         <>
             <header
-                className="bg-background text-foreground sticky top-0 z-50 border-b border-foreground/70 border-dashed">
+                className="bg-background text-foreground sticky top-0 z-50 border-b border-foreground/70 border-dashed"
+                style={{ height: `${HEADER_HEIGHT}px` }}
+            >
                 <div className="px-4 flex items-center justify-between h-10">
                     {/* Left section - Mobile Menu Button / Desktop Connect Button */}
                     <div className="flex items-center">
@@ -86,7 +94,6 @@ export default function Home() {
                                     <NavigationMenuLink
                                         onClick={() => {
                                             window.scrollTo({top: 0, behavior: 'smooth'});
-                                            triggerFlash('home');
                                         }}
                                         className={navigationMenuTriggerStyle()}
                                     >
@@ -121,7 +128,7 @@ export default function Home() {
 
                 {/* Mobile menu */}
                 {isMobileMenuOpen && (
-                    <div className="sm:hidden border-t border-foreground/10">
+                    <div className="sm:hidden border-t border-foreground/10 absolute w-full bg-background shadow-lg">
                         <nav className="flex flex-col space-y-2 p-4">
                             <button
                                 className="text-left text-foreground hover:text-primary px-2 py-1"
@@ -166,7 +173,6 @@ export default function Home() {
                         col-start-1 col-end-5 
                         flex flex-col items-center justify-center
                         px-4
-                        ${getFlashClass('home-section')}
                     `}
                         style={{minHeight: "calc(100vh - 40px"}}
                         id="home-section"
@@ -182,7 +188,7 @@ export default function Home() {
                     </div>
 
                     {/* About section */}
-                    <div id="about-section" className="col-start-1 col-end-5 flex justify-center scroll-margin-header">
+                    <div className="col-start-1 col-end-5 flex justify-center">
                         <AboutMe getFlashClass={getFlashClass}/>
                     </div>
 
@@ -191,7 +197,7 @@ export default function Home() {
                     </div>
 
                     {/* Projects section */}
-                    <div id="projects-section" className="col-start-1 col-end-5 flex justify-center scroll-margin-header">
+                    <div className="col-start-1 col-end-5 flex justify-center">
                         <ProjectsSection getFlashClass={getFlashClass}/>
                     </div>
                 </div>

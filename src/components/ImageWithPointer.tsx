@@ -3,18 +3,18 @@ import Image from "next/image";
 
 const ImageWithPointer = () => {
     return (
-        <div className="relative inline-block">
+        <div className="relative block w-[320px] sm:w-[400px] h-[320px] sm:h-[400px]">
             {/* Image */}
             <Image
                 src="/images/Family-removebg.png"
                 alt="Joel and family"
                 width={400}
                 height={400}
-                className="rounded-lg border border-secondary border"
+                className="rounded-lg border border-secondary w-full h-auto"
             />
 
             {/* Pointer container */}
-            <div className="absolute top-1/3 left-64">
+            <div className="absolute top-[53%] left-[58%]">
                 {/* Curved arrow using SVG */}
                 <svg
                     width="150"

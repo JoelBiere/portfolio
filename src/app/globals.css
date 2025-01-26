@@ -172,14 +172,3 @@ body {
   animation: marquee linear infinite;
 }
 
-@layer utilities {
-  .scroll-margin-header {
-    scroll-margin-top: 3rem;
-  }
-
-  @screen sm {
-    .scroll-margin-header {
-      scroll-margin-top: 4rem;
-    }
-  }
-}
