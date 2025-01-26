@@ -15,13 +15,15 @@ export interface Milestone {
 
 const Timeline = () => {
 
-    const theme = useTheme()
+    const {  resolvedTheme } = useTheme();
 
-    const [milestones, setMileStones]= useState<Milestone[]>(theme.theme === "dark" ? darkModeMilestones : lightModeMilestones);
+    const [milestones, setMilestones] = useState<Milestone[] | null>(null);
 
     useEffect(() => {
-        setMileStones(theme.theme === "dark" ? darkModeMilestones : lightModeMilestones);
-    }, [theme]);
+        setMilestones(resolvedTheme === "dark" ? darkModeMilestones : lightModeMilestones);
+    }, [resolvedTheme]);
+
+    if (!milestones) return null;
 
     return (
         <div className="space-y-8">

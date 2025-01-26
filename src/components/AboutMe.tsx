@@ -117,8 +117,8 @@ const AboutMe = ({getFlashClass}: { getFlashClass: (section: string) => string }
                                 <h4 className="text-primary font-medium">Frontend vs. Backend</h4>
                                 <p className="text-muted-foreground">
                                     <br />
-                                    I love the creative aspects of frontend development and the satisfaction of
-                                    seeing immediate results while crafting user experiences.
+                                    I love the creative aspects of frontend development and the satisfaction of working
+                                    in an iterative feedback loop between the view and the code.
                                     <br />
                                     <br />
                                     My background in education gives me a unique perspective on UI/UX design - as a teacher,

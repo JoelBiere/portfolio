@@ -52,13 +52,13 @@ const DeveloperRoles = () => {
     return (
         <div className="mt-4">
             <h2 className="text-base text-foreground/70 mb-3">
-                Former educator turned software developer who:
+                Full Stack Developer with experience in:
             </h2>
 
             <div className="space-y-2">
                 <div className="slide-in-1 flex justify-between items-center">
                     <h3 className="text-sm font-medium text-foreground hover:text-primary/80 transition-colors py-1">
-                        <span className="text-primary">Engineers</span> Backend Systems
+                        <span className="text-primary">Engineering</span> Backend Systems
                     </h3>
                     <TechMarquee technologies={backendTech} showNames={showNames}/>
                 </div>
@@ -67,7 +67,7 @@ const DeveloperRoles = () => {
 
                 <div className="slide-in-2 flex justify-between items-center">
                     <h3 className="text-sm font-medium text-foreground hover:text-primary/80 transition-colors py-1">
-                        <span className="text-primary">Creates</span> Frontend Experiences
+                        <span className="text-primary">Creating</span> Frontend Experiences
                     </h3>
                     <TechMarquee technologies={frontendTech} showNames={showNames}/>
                 </div>
@@ -76,7 +76,7 @@ const DeveloperRoles = () => {
 
                 <div className="slide-in-3 flex justify-between items-center">
                     <h3 className="text-sm font-medium text-foreground hover:text-primary/80 transition-colors py-1">
-                        <span className="text-primary">Builds</span> Fullstack Applications
+                        <span className="text-primary">Buildin</span> Fullstack Applications
                     </h3>
                     <TechMarquee technologies={fullstackTech} showNames={showNames}/>
                 </div>

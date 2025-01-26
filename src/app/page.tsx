@@ -67,9 +67,8 @@ export default function Home() {
                     border-b border-foreground/70 border-dashed
                 `}>
                 <div className={"col-start-1 ml-3"}>
-                    <Button variant={"outline"}
+                    <Button
                             size={"sm"}
-                            className={"text-primary border-primary"}
                             onClick={() => handleLinkClicked("connect-section")}
                     >
                         <a href={"#connect-section"} className={""}>Connect!</a>
@@ -85,6 +84,7 @@ export default function Home() {
                                         window.scrollTo({top: 0, behavior: 'smooth'});
                                     }}
                                     className={navigationMenuTriggerStyle()}
+                                    style={{cursor: "pointer"}}
                                 >
                                     Home
                                 </NavigationMenuLink>
@@ -115,10 +115,8 @@ export default function Home() {
                         className={`
                         col-start-1 col-end-5 
                         flex flex-col items-center justify-center
-                        ${getFlashClass('home-section')}
                     `}
                         style={{minHeight: "calc(100vh - 40px"}}
-                        id={"home-section"}
                     >
                         <h1 className={"text-4xl"}>Joel Biere </h1>
                         <p><span className={"text-xs"}>(and fam)</span></p>
