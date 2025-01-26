@@ -34,13 +34,41 @@ export default function Home() {
                 setIsFlashing(sectionName);
             });
         });
-        setTimeout(() => setIsFlashing(""), 1500); // Match animation duration
+        setTimeout(() => setIsFlashing(""), 1500);
     };
 
     const handleNavigation = (sectionId: string) => {
         const element = document.getElementById(sectionId);
         if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+            // Get viewport width
+            const viewportWidth = window.innerWidth;
+            const isMobile = viewportWidth < 640; // matches Tailwind's 'sm' breakpoint
+
+            // If it's the home section, just scroll to top
+            if (sectionId === 'home-section') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                // For mobile, use native scrollIntoView with less offset
+                if (isMobile) {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - 20; // smaller offset for mobile
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                } else {
+                    // For desktop, use the original behavior with more offset for the sticky header
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - 64; // larger offset for desktop
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            }
+
             const sectionName = sectionId.replace('-section', '');
             triggerFlash(sectionName);
         }
@@ -50,29 +78,47 @@ export default function Home() {
     useEffect(() => {
         const handleHashChange = () => {
             const hash = window.location.hash.slice(1);
-            const section = hash ? hash : 'home';
-            triggerFlash(section.replace('-section', ''));
+            if (hash) {
+                handleNavigation(hash);
+            } else {
+                triggerFlash('home');
+            }
         };
 
-        handleHashChange();
+        // Handle initial load
+        if (window.location.hash) {
+            handleHashChange();
+        }
+
         window.addEventListener('hashchange', handleHashChange);
         return () => window.removeEventListener('hashchange', handleHashChange);
     }, []);
 
     return (
         <>
-            <header className="bg-background text-foreground sticky top-0 z-50 border-b border-foreground/70 border-dashed">
+            <header
+                className="bg-background text-foreground sticky top-0 z-50 border-b border-foreground/70 border-dashed">
                 <div className="px-4 flex items-center justify-between h-10">
-                    {/* Left section */}
-                    <div className="flex-shrink-0">
+                    {/* Left section - Mobile Menu Button / Desktop Connect Button */}
+                    <div className="flex items-center">
                         <Button
-                            variant="outline"
+                            variant="ghost"
                             size="sm"
-                            className="text-primary border-primary text-xs"
-                            onClick={() => handleNavigation('connect-section')}
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                            className="sm:hidden -ml-2"
                         >
-                            Connect!
+                            <Menu className="h-5 w-5"/>
                         </Button>
+                        <div className="hidden sm:block">
+                            <Button
+                                variant="outline"
+                                size="sm"
+                                className="text-primary border-primary text-xs"
+                                onClick={() => handleNavigation('connect-section')}
+                            >
+                                Connect!
+                            </Button>
+                        </div>
                     </div>
 
                     {/* Center section - Navigation */}
@@ -110,20 +156,9 @@ export default function Home() {
                         </NavigationMenu>
                     </div>
 
-                    {/* Mobile menu button */}
-                    <div className="sm:hidden">
-                        <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        >
-                            <Menu className="h-5 w-5" />
-                        </Button>
-                    </div>
-
-                    {/* Right section */}
+                    {/* Right section - Theme Toggle */}
                     <div className="flex-shrink-0">
-                        <ThemeToggle />
+                        <ThemeToggle/>
                     </div>
                 </div>
 
@@ -153,6 +188,13 @@ export default function Home() {
                             >
                                 Projects
                             </button>
+                            <Separator className="my-2"/>
+                            <button
+                                className="text-left text-primary hover:text-primary/80 px-2 py-1"
+                                onClick={() => handleNavigation('connect-section')}
+                            >
+                                Connect!
+                            </button>
                         </nav>
                     </div>
                 )}
@@ -179,16 +221,16 @@ export default function Home() {
                     </div>
 
                     <div className="col-start-1 col-end-5">
-                        <Separator />
+                        <Separator/>
                     </div>
 
                     {/* About section */}
                     <div className="col-start-1 col-end-5 flex justify-center">
-                        <AboutMe getFlashClass={getFlashClass} />
+                        <AboutMe getFlashClass={getFlashClass}/>
                     </div>
 
                     <div className="col-start-1 col-end-5">
-                        <Separator />
+                        <Separator/>
                     </div>
 
                     {/* Projects section */}
