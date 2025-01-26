@@ -57,7 +57,7 @@ const DeveloperRoles = () => {
             </h2>
 
             <div className="space-y-2">
-                <div className="slide-in-1 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                <div className="slide-in-1 flex flex-col sm:flex-row items-start sm:items-center gap-4">
                     <h3 className="text-sm font-medium text-foreground hover:text-primary/80 transition-colors py-1 whitespace-nowrap">
                         <span className="text-primary">Engineering</span> Backend Systems
                     </h3>
@@ -66,7 +66,7 @@ const DeveloperRoles = () => {
 
                 <Separator className="my-2"/>
 
-                <div className="slide-in-2 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                <div className="slide-in-2 flex flex-col sm:flex-row items-start sm:items-center gap-4">
                     <h3 className="text-sm font-medium text-foreground hover:text-primary/80 transition-colors py-1 whitespace-nowrap">
                         <span className="text-primary">Creating</span> Frontend Experiences
                     </h3>
@@ -75,7 +75,7 @@ const DeveloperRoles = () => {
 
                 <Separator className="my-2"/>
 
-                <div className="slide-in-3 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                <div className="slide-in-3 flex flex-col sm:flex-row items-start sm:items-center gap-4">
                     <h3 className="text-sm font-medium text-foreground hover:text-primary/80 transition-colors py-1 whitespace-nowrap">
                         <span className="text-primary">Building</span> Fullstack Applications
                     </h3>

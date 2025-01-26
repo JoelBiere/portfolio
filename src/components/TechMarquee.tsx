@@ -31,7 +31,7 @@ const TechMarquee = ({ technologies, showNames }: {technologies: TechItem[], sho
     );
 
     return (
-        <div className="w-[300px]">
+        <div className="w-full overflow-hidden">
             <MarqueeWrapper>
                 {content}
             </MarqueeWrapper>
