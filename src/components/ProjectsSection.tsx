@@ -20,6 +20,13 @@ interface Project {
 const ProjectsSection = ({getFlashClass}: { getFlashClass: (section: string) => string }) => {
     const projects: Project[] = [
         {
+            title: "NFL Playoff Simulator",
+            description: "A live NFL playoff odds site. A Monte Carlo simulation plays out the rest of the season 100,000 times, applying the NFL's seeding and tiebreaker rules to calculate a given team's chances of making the playoffs, winning its division or earning the #1 seed. It also suggests which games to watch each week and who to root for, based on which outcomes help your team most. Pick winners for upcoming games to see how the odds move, and share any scenario as a link. Codebase is private.",
+            techStack: ["Java", "Spring Boot", "PostgreSQL", "React", "TypeScript", "Tailwind CSS", "Docker", "Railway", "Cloudflare"],
+            url: "https://nflplayoffsim.com",
+            previewImage: "/images/NFL_Playoff_Sim.png"
+        },
+        {
             title: "Load Tender System",
             description: "A full stack solution to modernizing IMCs order-entry system as it relates to accepting load tenders from customers. Codebase is private.",
             techStack: ["React", "TypeScript", "Spring Boot", "Java", "PostgreSQL", "Docker", "FastAPI", "Kafka", "GraphQL", "C"],
